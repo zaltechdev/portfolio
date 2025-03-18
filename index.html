@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
+        <link rel="stylesheet" href="./css/custom.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="./js/animation.js"></script>
+        <script src="./js/data.js"></script>
+        <title>Selamat datang di portfolio saya!</title>
+    </head>
+    <body class="bg-slate-800 flex flex-col overflow-y-auto">
+        <nav class="bg-slate-800 w-full h-16 flex flex-row items-center justify-between gap-2 px-10 top-0 left-0 sticky shrink-0 transition z-20">
+            <div class="flex-row items-center bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text transition duration-1000 hidden opacity-0 translate-y-7" id="logo">
+                <p class="text-transparent font-bold text-2xl tracking-wide">zaltechdev</p>
+            </div>
+            <div class="flex flex-row items-center gap-2 text-sm" id="menu-bar">
+                <a href="#jombotron" class="hidden opacity-0 translate-y-10 duration-500 flex-row items-center gap-2 py-2 rounded px-4">
+                    <span class="hover:text-emerald-400 transition active:text-sky-400">Beranda</span>
+                </a>
+                <a href="#techstack" class="hidden opacity-0 translate-y-10 duration-500 flex-row items-center gap-2 py-2 rounded px-4">
+                    <span class="hover:text-emerald-400 transition active:text-sky-400">Techstack</span>
+                </a>
+                <a href="#certified" class="hidden opacity-0 translate-y-10 duration-500 flex-row items-center gap-2 py-2 rounded px-4">
+                    <span class="hover:text-emerald-400 transition active:text-sky-400">Sertifikasi</span>
+                </a>
+                <a href="#project" class="hidden opacity-0 translate-y-10 duration-500 flex-row items-center gap-2 py-2 rounded px-4">
+                    <span class="hover:text-emerald-400 transition active:text-sky-400">Proyek</span>
+                </a>
+                <a href="#contact" class="hidden opacity-0 translate-y-10 duration-500 flex-row items-center gap-2 py-2 rounded px-4">
+                    <span class="hover:text-emerald-400 transition active:text-sky-400">Kontak</span>
+                </a>
+            </div>
+        </nav>
+        <header id="jombotron" class="h-[calc(100dvh_-_64px)] gap-10 w-full shrink-0 px-10 flex flex-row items-center justify-between">
+            <div class="flex flex-col gap-4 justify-center w-1/2 h-full">
+                <div class="flex flex-col gap-4">
+                    <h2 class="font-medium text-3xl transition opacity-0 -translate-x-10 duration-500 delay-200" id="im-a-title">Hai, Saya adalah seorang</h2>
+                    <div class="relative flex flex-col h-20 justify-start -translate-x-10 duration-500 transition opacity-0 delay-500" id="main-title-container">
+                        <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title1">
+                            <p class="text-7xl font-bold text-transparent h-20">Web Developer</span>
+                        </h1>
+                        <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title2">
+                            <p class="text-7xl font-bold text-transparent h-20">UI UX Designer</p>
+                        </h1>
+                    </div>
+                    <p class="duration-500 font-light text-lg text-slate-300 transition opacity-0 -translate-x-10 delay-700" id="intro-msg">
+                        Berpengalaman dalam dunia teknologi pengembangan website dan desain antarmuka selama 1+ tahun terakhir.
+                        Teknologi MERN dan WAMP menjadi solusi utama untuk proyek website anda. Membuat desain yang baik, elegan, simple, modern, profesional, serta menarik untuk keperluan prototyping anda dengan Figma.
+                    </p>
+                    <a href="" class="py-2 px-4 rounded-md bg-gradient-to-tl flex flex-row items-center gap-3 to-emerald-400 from-sky-400 w-max mt-4 transition delay-1000 -translate-x-10 opacity-0 duration-500" id="button-download-cv">
+                        <span class="fas fa-download"></span>
+                        <span>Download CV</span>
+                    </a>
+                </div>
+                <div class="flex flex-col gap-4 mt-6">
+                    <h3 class="font-medium text-xl text-slate-300 transition opacity-0 duration-500 delay-[1200ms] -translate-x-10" id="follow-title">Follow saya di :</h3>
+                    <div class="flex flex-row gap-4" id="follow-social-jombotron">
+                        <a href="" class="transition opacity-0 translate-y-10 duration-500 delay-[1200ms] hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-facebook grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                        <a href="" class="transition opacity-0 translate-y-10 duration-500 delay-[1200ms] hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-instagram grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                        <a href="" class="transition opacity-0 translate-y-10 duration-500 delay-[1200ms] hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-linkedin grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                        <a href="" class="transition opacity-0 translate-y-10 duration-500 delay-[1200ms] hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-github grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-row items-center w-1/2 justify-center relative">
+                <img src="./img/profile.png" alt="" class="w-96 h-[calc(100dvh_-_64px)] -z-10 object-cover object-center transition translate-y-10 opacity-0 duration-1000" id="my-photo">
+            </div>
+        </header>
+        <main class="h-full shrink-0 flex flex-col">
+            <div class="w-full bg-slate-900 h-80 bg-opacity-30 z-20 flex flex-col items-center justify-center gap-6 px-10">
+                <h2 class="text-slate-300 font-semibold text-3xl tracking-wide">TechStack.</h2>
+                <div class="flex flex-row items-center justify-center flex-wrap gap-6 w-full" id="techstack-container">
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Tailwind CSS</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Bootstrap</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">JQuery</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">React JS</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Svelte</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">PHP</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">MySQL</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Node JS</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Express JS</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Electron JS</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Git</p>
+                    <p class="p-2 bg-slate-900 rounded-md px-4 bg-opacity-50 text-slate-300">Figma</p>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+    <div class="h-12 w-12 fixed translate-y-20 bottom-6 right-6 transition-transform bg-emerald-400 rounded-full" id="up-button">
+        <button id="go-to-up-button" class="w-full h-full grid place-items-center">
+            <span class="fas fa-angle-up text-xl"></span>
+        </b>
+    </div>
+</html>
