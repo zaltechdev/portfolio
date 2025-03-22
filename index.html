@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="./css/custom.css">
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="./js/action.js"></script>
         <script src="./js/animation.js"></script>
         <script src="./js/data.js"></script>
         <title>Selamat datang di portfolio saya!</title>
@@ -19,7 +20,8 @@
             <div class="flex-row items-center bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text flex" id="logo">
                 <p class="text-transparent font-bold text-2xl tracking-wide">zaltechdev</p>
             </div>
-            <div class="flex flex-row items-center gap-2 text-sm" id="menu-bar">
+            <button class="fas fa-bars block md:hidden" id="toggle-mobile-menu-dropdown"></button>
+            <div class="hidden md:flex md:flex-row md:items-center gap-2 flex-col text-sm absolute top-16 left-0 md:static bg-slate-800 md:w-max w-full pb-4 pl-6 md:p-0 md:bg-transparent md:shadow-none shadow-md" id="menu-bar">
                 <a href="#jombotron" class="flex flex-row items-center gap-2 py-2 rounded px-4">
                     <span class="hover:text-emerald-400 transition active:text-sky-400">Beranda</span>
                 </a>
@@ -37,23 +39,23 @@
                 </a>
             </div>
         </nav>
-        <header id="jombotron" class="h-[calc(100dvh_-_64px)] gap-10 w-full shrink-0 px-10 flex flex-row items-center justify-between relative">
+        <header id="jombotron" class="h-max md:h-[calc(100dvh_-_64px)] gap-10 w-full shrink-0 px-10 flex flex-col md:flex-row items-center justify-between relative py-6">
             
-            <div class="flex flex-row items-center w-1/2 justify-center relative">
-                <img src="./img/profile.png" alt="" class="w-96 h-[calc(100dvh_-_64px)] -z-10 object-cover object-center" id="my-photo">
+            <div class="flex flex-row items-center md:w-1/2 w-full justify-center relative">
+                <img src="./img/profile.png" alt="" class="md:w-96 w-full min-h-80 rounded-full md:rounded-none md:h-[calc(100dvh_-_64px)] -z-10 object-cover object-center">
             </div>
-            <div class="flex flex-col gap-4 justify-center w-2/3 h-full">
+            <div class="flex flex-col gap-4 justify-center md:w-2/3 w-full h-full">
                 <div class="flex flex-col gap-4">
-                    <h2 class="font-medium text-3xl" id="im-a-title">Hai! Saya adalah seorang</h2>
-                    <div class="relative flex flex-col h-20 justify-start" id="main-title-container">
+                    <h2 class="font-medium md:text-3xl text-2xl">Hai! Saya adalah seorang</h2>
+                    <div class="relative flex flex-col h-16 md:h-20 justify-start" id="main-title-container">
                         <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title1">
-                            <p class="text-7xl font-bold text-transparent h-20">Web Developer.</span>
+                            <p class="md:text-7xl text-5xl font-bold text-transparent h-16 md:h-20">Web Developer.</span>
                         </h1>
                         <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title2">
-                            <p class="text-7xl font-bold text-transparent h-20">UI UX Designer.</p>
+                            <p class="md:text-7xl text-5xl font-bold text-transparent h-16 md:h-20">UI UX Designer.</p>
                         </h1>
                     </div>
-                    <p class="font-light text-lg text-slate-300" id="intro-msg">
+                    <p class="font-light text-lg text-slate-300">
                         Berpengalaman dalam dunia teknologi pengembangan website dan desain antarmuka selama 1+ tahun terakhir.
                         Teknologi MERN dan WAMP menjadi solusi utama untuk proyek website anda. Membuat desain yang baik, elegan, simple, modern, profesional, serta menarik untuk keperluan prototyping anda dengan Figma.
                     </p>
@@ -76,7 +78,7 @@
         <main class="h-max shrink-0 flex flex-col">
             <div class="w-full bg-slate-900 h-max bg-opacity-30 flex flex-col items-center justify-center gap-6 py-6" id="techstack">
                 <h2 class="font-semibold text-3xl tracking-wide">TechStack.</h2>
-                <div class="grid grid-rows-2 grid-cols-4 gap-6 w-full text-center py-1 px-6">
+                <div class="grid md:grid-rows-2 md:grid-cols-4 grid-cols-2 gap-6 w-full text-center py-1 px-6">
                     <div class="rounded-md ring-1 ring-slate-700 p-6 min-w-52 gap-4 flex flex-col h-72 snap-center">
                         <p class="devicon-jquery-plain text-[4rem]"></p>
                         <p class="font-medium">JQUERY</p>
@@ -121,16 +123,16 @@
             </div>
             <div class="w-full min-h-[calc(100dvh_+_10dvh)] flex flex-col items-center justify-center gap-6 py-6" id="certified">
                 <h2 class="font-semibold text-3xl tracking-wide">Sertifikasi.</h2>
-                <div class="grid grid-cols-3 gap-6 w-full text-center py-1 px-6">
-                    <div class="flex flex-col gap-4 w-full max-w-96">
+                <div class="grid grid-rows-2 md:grid-cols-3 grid-cols-1 gap-6 w-full text-center py-1 px-6 h-max">                     
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
                         <img src="./img/msib-CQIWX40l.png" alt="" class="object-center object-contain h-64">
                         <p>Sertifikat MSIB Platform and Web Developer for Finance/Banking Service</p>
-                    </div>
-                    <div class="flex flex-col gap-4 w-full max-w-96">
+                    </div>                  
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
                         <img src="./img/vsga-vkMvjk4B.png" alt="" class="object-center object-contain h-64">
                         <p>Sertifikat Kompetensi Junior Web Developer VSGA KOMINFO 2024</p>
-                    </div>
-                    <div class="flex flex-col gap-4 w-full max-w-96">
+                    </div>                  
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
                         <img src="./img/blk-prS5L6Eh.png" alt="" class="object-center object-contain h-64">
                         <p>Sertifikat Junior Web Programmer UPT BLK Purworejo 2022</p>
                     </div>
@@ -138,37 +140,37 @@
             </div>
             <div class="w-full bg-slate-900 min-h-max bg-opacity-30 flex flex-col items-center justify-center gap-6 py-6" id="projects">
                 <h2 class="font-semibold text-3xl tracking-wide">Proyek.</h2>
-                <div class="grid grid-rows-2 grid-cols-3 gap-6 w-full text-center py-1 px-6 h-max">                    
-                    <div class="flex flex-col gap-4 w-full max-w-96">
-                        <img src="./img/projects/d3b3e0d50a1e5b6d71023833eb782ad8.png" alt="" class="object-center object-cover w-full h-64">
+                <div class="grid grid-rows-2 md:grid-cols-3 grid-cols-1 gap-6 w-full text-center py-1 px-6 h-max">                    
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
+                        <img src="./img/projects/d3b3e0d50a1e5b6d71023833eb782ad8.png" alt="" class="object-center md:object-cover object-contain w-full h-64">
                         <p class="font-medium">Login Page & 2FA dengan Framework PHP OOP buatan sendiri</p>
                     </div>
-                    <div class="flex flex-col gap-4 w-full max-w-96">
-                        <img src="./img/projects/7cce3a280d1c81cbfe89fb1a4f461135.png" alt="" class="object-center object-cover w-full h-64">
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
+                        <img src="./img/projects/7cce3a280d1c81cbfe89fb1a4f461135.png" alt="" class="object-center md:object-cover object-contain w-full h-64">
                         <p class="font-medium">Design UI/UX Prototype Mobile App sederhana untuk lomba</p>
                     </div>
-                    <div class="flex flex-col gap-4 w-full max-w-96">
-                        <img src="./img/projects/8b2be2a9910f481900210ca0b35e105f.png" alt="" class="object-center object-cover w-full h-64">
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
+                        <img src="./img/projects/8b2be2a9910f481900210ca0b35e105f.png" alt="" class="object-center md:object-cover object-contain w-full h-64">
                         <p class="font-medium">Landing page portfolio SPA sederhana dengan Svelte, CSS, HTML</p>
                     </div>
-                    <div class="flex flex-col gap-4 w-full max-w-96">
-                        <img src="./img/projects/32b57f6485840f34bb979d0de5b0699a.png" alt="" class="object-center object-cover w-full h-64">
+                    <div class="flex flex-col gap-4 min-w-full md:max-w-96">
+                        <img src="./img/projects/32b57f6485840f34bb979d0de5b0699a.png" alt="" class="object-center md:object-cover object-contain w-full h-64">
                         <p class="font-medium">Ubah Website ke dalam Desktop App dengan/tanpa Installer</p>
                     </div>                    
                 </div>
             </div>
-            <div class="w-full min-h-dvh flex flex-row items-center justify-center gap-6 py-6" id="contact">
-                <div class="flex flex-col w-1/2 justify-center items-center">
-                    <div class="flex flex-col gap-4 w-2/3">
-                        <h2 class="font-semibold text-3xl tracking-wide">Kontak.</h2>
-                        <p class="text-slate-400 leading-relaxed">
+            <div class="w-full min-h-dvh flex md:flex-row flex-col items-center justify-center gap-6 py-6" id="contact">
+                <div class="flex flex-col md:w-1/2 w-full justify-center items-center px-6">
+                    <div class="flex flex-col gap-4 md:w-2/3 w-full">
+                        <h2 class="font-semibold text-3xl tracking-wide text-center md:text-left">Kontak.</h2>
+                        <p class="text-slate-400 leading-relaxed w-full text-center md:text-left">
                             Bagi anda yang ingin bertanya kepada saya tentang bisnis, jasa atau produk website dan desain antarmuka
                             dengan senang hati saya membuka untuk anda mengirim pesan via form di
                             halaman ini atau melalui media sosial saya yang tercantum. 
                             <br>Terimakasih telah menjelajahi website portfolio ini!
                         </p>
-                        <h3 class="font-medium text-xl text-slate-300 mt-10">Hubungi & Follow saya di :</h3>
-                        <div class="flex flex-row gap-4 mt-2">
+                        <h3 class="font-medium text-xl text-slate-300 mt-10 hidden md:block">Hubungi & Follow saya di :</h3>
+                        <div class="md:flex hidden flex-row gap-4 mt-2">
                             <a href="https://www.facebook.com/zalfahanif01" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-facebook grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
                             <a href="https://instagram.com/zaltechdev" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-instagram grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
                             <a href="https://www.linkedin.com/in/zalfa-daffani-fadhillah-al-hanif/" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-linkedin grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
@@ -176,7 +178,7 @@
                         </div>
                     </div>                    
                 </div>
-                <div class="flex flex-col items-center justify-center w-1/2">
+                <div class="flex flex-col items-center justify-center md:w-1/2  w-full">
                     <form action="" class="flex flex-col gap-2 w-96" method="post" id="submit-message">
                         <label for="senderName" class="text-sm font-medium">Nama lengkap anda</label>
                         <input type="text" name="senderName" id="senderName" class="w-full h-10 px-4 rounded-md ring-1 ring-slate-500 bg-transparent">
@@ -194,10 +196,19 @@
                         </div>
                         <button id="submit-btn" class="h-11 rounded-md bg-gradient-to-tl to-emerald-400 from-sky-400 mt-4">Kirim pesan</button>
                     </form>
+                    <div class="flex flex-col gap-4">
+                        <h3 class="font-medium text-xl text-slate-300 mt-10 md:hidden">Hubungi & Follow saya di :</h3>
+                        <div class="flex md:hidden flex-row gap-4 mt-2">
+                            <a href="https://www.facebook.com/zalfahanif01" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-facebook grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                            <a href="https://instagram.com/zaltechdev" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-instagram grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                            <a href="https://www.linkedin.com/in/zalfa-daffani-fadhillah-al-hanif/" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-linkedin grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                            <a href="https://github.com/zaltechdev" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-github grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
-        <footer class="w-full h-24 flex flex-row items-center justify-center gap-6 bg-slate-900 shrink-0">
+        <footer class="w-full h-20 flex flex-row items-center justify-center gap-6 bg-slate-900 shrink-0">
             <p class="text-center text-sm text-slate-500">Copyright by zaltechdev • 2025 • All right reserved</p>
         </footer>
     </body>
