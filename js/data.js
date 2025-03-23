@@ -1,5 +1,5 @@
 $(document).ready(() => {
-    const BACKEND_ENDPOINT = `https://portfolio-vercel-deployment.vercel.app/sending-message`
+    const BACKEND_ENDPOINT = `https://portfolio-be-mailer.vercel.app/sending-message`
     $("#submit-message").on("submit",(e) => {
         e.preventDefault()
         let formData = {}
@@ -26,7 +26,11 @@ $(document).ready(() => {
             },
             error : function (err) {
                 $("#feedback-failed").addClass("flex").removeClass("hidden")
-                $("#feedback-message-failed").text(err.responseJSON.message)
+                if(err.responseText){
+                    $("#feedback-message-failed").text(err.responseJSON.message)
+                } else {
+                    $("#feedback-message-failed").text("Maaf, terjadi kesalahan saat mengirim pesan coba lagi!")
+                }
                 setTimeout(() => {
                     $("#feedback-failed").addClass("hidden").removeClass("flex")
                     $("#feedback-message-failed").text("")
