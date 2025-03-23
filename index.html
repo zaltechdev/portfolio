@@ -8,7 +8,7 @@
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
         <link rel="stylesheet" href="./css/custom.css">
-        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com/3.4.16"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="./js/action.js"></script>
         <script src="./js/animation.js"></script>
@@ -16,7 +16,7 @@
         <title>Selamat datang di portfolio saya!</title>
     </head>
     <body class="bg-slate-800 flex flex-col overflow-y-auto">
-        <nav class="bg-slate-800 w-full h-16 flex flex-row items-center justify-between gap-2 px-10 top-0 left-0 sticky shrink-0 transition z-20">
+        <nav class="bg-slate-800 w-full h-16 flex flex-row items-center justify-between gap-2 lg:px-10 px-6 top-0 left-0 sticky shrink-0 transition z-20">
             <div class="flex-row items-center bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text flex" id="logo">
                 <p class="text-transparent font-bold text-2xl tracking-wide">zaltechdev</p>
             </div>
@@ -42,20 +42,22 @@
         <header id="jombotron" class="h-max md:h-[calc(100dvh_-_64px)] gap-10 w-full shrink-0 md:px-10 px-6 flex flex-col md:flex-row items-center justify-between relative py-6">
             
             <div class="flex flex-row items-center md:w-1/2 w-full justify-center relative">
-                <img src="./img/profile.png" alt="" class="md:w-96 w-full min-h-80 rounded-full md:rounded-none md:h-[calc(100dvh_-_64px)] -z-10 object-cover object-center">
+                <img src="./img/profile.png" alt="My Photo Profile" class="w-72 md:w-full lg:min-h-80 rounded-full md:rounded-none md:h-[calc(100dvh_-_64px)] -z-10 object-cover object-center">
             </div>
             <div class="flex flex-col gap-4 justify-center md:w-2/3 w-full h-full">
-                <div class="flex flex-col gap-4">
-                    <h2 class="font-medium md:text-3xl text-2xl">Hai! Saya adalah seorang</h2>
-                    <div class="relative flex flex-col sm:h-24 h-16 md:h-20 justify-start" id="main-title-container">
-                        <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title1">
-                            <p class="md:text-7xl text-5xl font-bold text-transparent sm:text-3xl text-nowrap h-16 md:h-20">Web Developer.</span>
-                        </h1>
-                        <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title2">
-                            <p class="md:text-7xl text-5xl font-bold text-transparent sm:text-3xl text-nowrap h-16 md:h-20">UI UX Designer.</p>
-                        </h1>
+                <div class="flex flex-col">
+                    <h2 class="font-medium text-xl md:text-2xl">Hai! Saya adalah seorang</h2>
+                    <div class="w-full flex flex-col h-[60px] md:h-20 lg:h-24 text-4xl md:text-5xl lg:text-6xl">
+                        <div class="relative flex flex-col justify-start h-full" id="main-title-container">
+                            <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title1">
+                                <p class="font-bold text-transparent text-nowrap">Web Developer.</span>
+                            </h1>
+                            <h1 class="duration-500 translate-y-5 transition absolute opacity-0 flex-row items-end tracking-wide bg-gradient-to-tl to-emerald-400 from-sky-400 bg-clip-text leading-relaxed" id="main-title2">
+                                <p class="font-bold text-transparent text-nowrap">UI UX Designer.</p>
+                            </h1>
+                        </div>
                     </div>
-                    <p class="font-light text-lg text-slate-300">
+                    <p class="font-light text-slate-300 md:text-xl" style="line-height: 1.65;">
                         Berpengalaman dalam dunia teknologi pengembangan website dan desain antarmuka selama 1+ tahun terakhir.
                         Teknologi MERN dan WAMP menjadi solusi utama untuk proyek website anda. Membuat desain yang baik, elegan, simple, modern, profesional, serta menarik untuk keperluan prototyping anda dengan Figma.
                     </p>
@@ -65,7 +67,7 @@
                     </a> -->
                 </div>
                 <div class="flex flex-col gap-4 mt-6">
-                    <h3 class="font-medium text-xl text-slate-300">Follow saya di :</h3>
+                    <h3 class="font-medium text-slate-300 md:text-xl">Follow saya di :</h3>
                     <div class="flex flex-row gap-4">
                         <a href="https://www.facebook.com/zalfahanif01" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-facebook grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
                         <a href="https://instagram.com/zaltechdev" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-instagram grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
@@ -159,11 +161,11 @@
                     </div>                    
                 </div>
             </div>
-            <div class="w-full min-h-dvh flex md:flex-row flex-col items-center justify-center gap-6 py-6" id="contact">
-                <div class="flex flex-col md:w-1/2 w-full justify-center items-center px-6">
+            <div class="w-full min-h-dvh flex md:flex-row flex-col items-center justify-center gap-6 p-6" id="contact">
+                <div class="flex flex-col md:w-1/2 w-full justify-center items-center">
                     <div class="flex flex-col gap-4 md:w-2/3 w-full">
                         <h2 class="font-semibold text-3xl tracking-wide text-center md:text-left">Kontak.</h2>
-                        <p class="text-slate-400 leading-relaxed w-full text-center md:text-left">
+                        <p class="text-slate-300 w-full text-center md:text-left md:text-lg" style="line-height: 1.65;">
                             Bagi anda yang ingin bertanya terkait bisnis, jasa, atau produk website dan desain antarmuka
                             dengan senang hati saya membuka untuk anda mengirim pesan via form di
                             halaman ini atau melalui media sosial saya yang tercantum. 
@@ -178,7 +180,7 @@
                         </div>
                     </div>                    
                 </div>
-                <div class="flex flex-col items-center justify-center md:w-1/2 px-6 w-full">
+                <div class="flex flex-col items-center justify-center md:w-1/2 w-full">
                     <form action="" class="flex flex-col gap-2 md:w-96 w-full" method="post" id="submit-message">
                         <label for="senderName" class="text-sm font-medium">Nama lengkap anda</label>
                         <input type="text" name="senderName" id="senderName" class="w-full h-10 px-4 rounded-md ring-1 ring-slate-500 bg-transparent">
@@ -198,7 +200,7 @@
                     </form>
                     <div class="flex flex-col gap-4">
                         <h3 class="font-medium text-xl text-slate-300 mt-10 md:hidden">Hubungi & Follow saya di :</h3>
-                        <div class="flex md:hidden flex-row gap-4 mt-2">
+                        <div class="flex md:hidden flex-row gap-4 mt-2 self-center">
                             <a href="https://www.facebook.com/zalfahanif01" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-facebook grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
                             <a href="https://instagram.com/zaltechdev" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-instagram grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
                             <a href="https://www.linkedin.com/in/zalfa-daffani-fadhillah-al-hanif/" class="transition hover:text-emerald-400 active:text-sky-400 hover:ring-emerald-400 active:ring-sky-400 fab fa-linkedin grid place-items-center ring-1 ring-slate-400 rounded-full h-12 w-12 text-2xl"></a>
