@@ -128,7 +128,7 @@
 					{/if}
 				</div>
 
-				<div class="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
+				<div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 mt-4 justify-center md:justify-start">
 					<Button type="button" onclick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
 						<i class="ri-chat-3-line"></i> Hubungi Saya
 					</Button>
@@ -140,13 +140,13 @@
 
 			<!-- Right Photo Block -->
 			<div class="md:col-span-5 flex justify-center order-1 md:order-2">
-				<div class="relative w-64 h-[340px] md:w-72 md:h-[380px] rounded-3xl overflow-hidden border border-neutral-800 bg-neutral-900/40 p-3 shadow-2xl flex items-center justify-center">
-					<div class="w-full h-full rounded-2xl overflow-hidden relative border border-neutral-800">
+				<div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/40 p-1.5 shadow-2xl flex items-center justify-center">
+					<div class="w-full h-full rounded-full overflow-hidden relative border border-neutral-800">
 						{#if data.profile.photoUrl}
-							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="portrait" />
+							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="square" />
 						{:else}
 							<div class="flex items-center justify-center w-full h-full text-neutral-600">
-								<i class="ri-user-fill text-8xl"></i>
+								<i class="ri-user-fill text-6xl"></i>
 							</div>
 						{/if}
 					</div>

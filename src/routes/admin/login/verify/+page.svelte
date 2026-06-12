@@ -53,15 +53,8 @@
 <Toast bind:message={toastMessage} type={toastType} />
 
 <div class="min-h-screen bg-[#09090b] text-neutral-100 flex items-center justify-center p-4 relative overflow-hidden">
-	<!-- Ambient Background Glows -->
-	<div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-	<div class="absolute -bottom-40 -right-40 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-
 	<div class="w-full max-w-md bg-neutral-900/60 backdrop-blur-xl border border-neutral-800 rounded-2xl p-8 shadow-2xl relative z-10 transition-all duration-300 hover:border-neutral-700/60">
 		<div class="text-center mb-8">
-			<div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 mb-4 shadow-lg shadow-indigo-500/5">
-				<i class="ri-mail-shield-line text-2xl"></i>
-			</div>
 			<h1 class="text-2xl font-bold tracking-tight text-neutral-100">Verifikasi OTP</h1>
 			<p class="text-neutral-400 text-sm mt-2">
 				Masukkan 6 digit kode keamanan yang telah dikirimkan ke email Anda untuk melanjutkan.

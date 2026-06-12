@@ -22,6 +22,9 @@
 	}
 </script>
 
+{#if page.url.pathname === '/admin/login' || page.url.pathname === '/admin/login/verify'}
+	{@render children()}
+{:else}
 <div class="min-h-screen bg-[#09090b] text-neutral-100 flex flex-col md:flex-row">
 	<!-- Mobile Top Navigation Header -->
 	<header class="md:hidden flex items-center justify-between px-6 py-4 bg-neutral-900 border-b border-neutral-800">
@@ -74,8 +77,7 @@
 					<i class="ri-shield-keyhole-line text-lg"></i>
 				</div>
 				<div>
-					<h2 class="font-bold text-neutral-100 text-sm leading-tight">Admin Console</h2>
-					<span class="text-xs text-neutral-500">Zalfa Hanif Portfolio</span>
+					<h2 class="font-bold text-neutral-100 text-sm leading-tight">Admin Dashboard</h2>
 				</div>
 			</div>
 
@@ -123,3 +125,4 @@
 		{@render children()}
 	</main>
 </div>
+{/if}
