@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { page } from '$app/state';
+	import { fade, scale } from 'svelte/transition';
 	import Button from '$lib/components/reusable/Button.svelte';
 	import Input from '$lib/components/reusable/Input.svelte';
 	import Textarea from '$lib/components/reusable/Textarea.svelte';
@@ -12,6 +13,30 @@
 	let loading = $state(false);
 	let toastMessage = $state("");
 	let toastType = $state<'success' | 'error' | 'info'>('info');
+
+	let activePreviewImage = $state<string | null>(null);
+	let activePreviewAlt = $state<string>("");
+
+	function openPreview(src: string, alt: string) {
+		activePreviewImage = src;
+		activePreviewAlt = alt;
+		if (typeof document !== 'undefined') {
+			document.body.style.overflow = 'hidden';
+		}
+	}
+
+	function closePreview() {
+		activePreviewImage = null;
+		if (typeof document !== 'undefined') {
+			document.body.style.overflow = '';
+		}
+	}
+
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape' && activePreviewImage) {
+			closePreview();
+		}
+	}
 
 	// Parse tech stack list helper
 	function parseTechStack(techstack: string) {
@@ -46,6 +71,8 @@
 		};
 	}
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
 	<title>zaltechdev</title>
@@ -180,16 +207,22 @@
 						{#each data.projects as project}
 							<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 bg-neutral-900/40 border border-neutral-800 p-6 md:p-8 rounded-3xl hover:border-neutral-700/60 transition-all duration-300">
 								<!-- Mockup Column -->
-								<div class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group">
-									{#if project.photoUrl}
-										<Image src={project.photoUrl} alt={project.title} ratio="landscape" class="group-hover:scale-105 transition-transform duration-700" />
-									{:else}
+								{#if project.photoUrl}
+									<button
+										type="button"
+										onclick={() => openPreview(project.photoUrl, project.title)}
+										class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group cursor-zoom-in text-left p-0 w-full font-normal focus:outline-hidden"
+									>
+										<Image src={project.photoUrl} alt={project.title} ratio="landscape" class="group-hover:scale-105 transition-transform duration-700 w-full" />
+									</button>
+								{:else}
+									<div class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group">
 										<div class="flex flex-col items-center justify-center py-12 text-neutral-600 gap-2 w-full h-full min-h-55">
 											<i class="ri-image-line text-3xl"></i>
 											<span class="text-xs">Gambar Projek</span>
 										</div>
-									{/if}
-								</div>
+									</div>
+								{/if}
 
 								<!-- Details Column -->
 								<div class="md:col-span-7 flex flex-col justify-center gap-2">
@@ -325,5 +358,48 @@
 		<footer class="py-8 px-6 md:px-12 border-t border-neutral-900 bg-neutral-950 text-center text-xs text-neutral-500">
 			<p>&copy; {new Date().getFullYear()} zaltechdev. All rights reserved.</p>
 		</footer>
+	</div>
+{/if}
+
+{#if activePreviewImage}
+	<!-- svelte-ignore a11y_click_events_have_key_events -->
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<div
+		role="dialog"
+		aria-modal="true"
+		tabindex="-1"
+		class="fixed inset-0 z-50 bg-neutral-950/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-8 cursor-zoom-out"
+		onclick={closePreview}
+		transition:fade={{ duration: 200 }}
+	>
+		<!-- Close Button -->
+		<button
+			type="button"
+			onclick={closePreview}
+			class="fixed top-6 right-6 text-neutral-400 hover:text-neutral-100 transition-colors z-50 bg-neutral-900/80 hover:bg-neutral-800/80 p-3 rounded-full flex items-center justify-center shadow-lg cursor-pointer border border-neutral-800/80"
+			aria-label="Tutup preview"
+		>
+			<i class="ri-close-line text-2xl"></i>
+		</button>
+
+		<!-- Image Wrapper -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div 
+			class="relative max-w-5xl max-h-[85vh] flex flex-col items-center gap-4 cursor-default"
+			onclick={(e) => e.stopPropagation()}
+			transition:scale={{ duration: 250, start: 0.95 }}
+		>
+			<img
+				src={activePreviewImage}
+				alt={activePreviewAlt}
+				class="max-w-full max-h-[75vh] md:max-h-[80vh] rounded-2xl object-contain shadow-2xl border border-neutral-850"
+			/>
+			{#if activePreviewAlt}
+				<span class="text-neutral-200 text-sm md:text-base font-bold bg-neutral-900/90 border border-neutral-800/80 px-4 py-2 rounded-xl backdrop-blur-md shadow-lg">
+					{activePreviewAlt}
+				</span>
+			{/if}
+		</div>
 	</div>
 {/if}
