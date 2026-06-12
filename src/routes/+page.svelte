@@ -56,7 +56,7 @@
 
 {#if !data.profile}
 	<!-- SETUP WELCOME SCREEN IF PROFILE NOT YET CONFIGURED -->
-	<div class="min-h-screen bg-[#09090b] text-neutral-100 flex items-center justify-center p-4 relative overflow-hidden">
+	<div class="h-dvh bg-neutral-950 text-neutral-100 flex items-center justify-center p-4 relative overflow-hidden">
 		<!-- Background light glow -->
 		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -85,7 +85,7 @@
 	</div>
 {:else}
 	<!-- FULL PORTFOLIO LANDING PAGE -->
-	<div class="min-h-screen bg-[#09090b] text-neutral-100 selection:bg-indigo-500/30 selection:text-indigo-200">
+	<div class="h-dvh bg-neutral-950 text-neutral-100 selection:bg-indigo-500/30 selection:text-indigo-200">
 		
 		<!-- STICKY GLASSMORPHIC NAVBAR -->
 		<nav class="sticky top-0 z-40 bg-neutral-950/60 backdrop-blur-md border-b border-neutral-900/60 py-4 px-6 md:px-12 flex justify-between items-center">
@@ -101,7 +101,7 @@
 		</nav>
 
 		<!-- HERO SECTION -->
-		<section id="about" class="py-20 md:py-28 px-6 md:px-12 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative">
+		<section id="about" class="py-20 md:py-28 px-6 md:px-16 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative">
 			<!-- Left Info Block -->
 			<div class="md:col-span-7 flex flex-col gap-6 text-center md:text-left relative z-10 order-2 md:order-1">
 				<h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-neutral-100">
@@ -113,16 +113,16 @@
 
 				<!-- Social Links -->
 				<div class="flex items-center justify-center md:justify-start gap-4 mt-2">
-					<a href={data.profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+					<a href={data.profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-10 h-10 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
 						<i class="ri-github-fill text-xl"></i>
 					</a>
 					{#if data.profile.linkedin}
-						<a href={data.profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+						<a href={data.profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-10 h-10 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
 							<i class="ri-linkedin-box-fill text-xl"></i>
 						</a>
 					{/if}
 					{#if data.profile.email}
-						<a href="mailto:{data.profile.email}" aria-label="Email Address" class="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+						<a href="mailto:{data.profile.email}" aria-label="Email Address" class="w-10 h-10 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
 							<i class="ri-mail-fill text-xl"></i>
 						</a>
 					{/if}
@@ -140,10 +140,10 @@
 
 			<!-- Right Photo Block -->
 			<div class="md:col-span-5 flex justify-center order-1 md:order-2">
-				<div class="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/40 p-1.5 shadow-2xl flex items-center justify-center">
+				<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/40 p-1.5 shadow-2xl flex items-center justify-center">
 					<div class="w-full h-full rounded-full overflow-hidden relative border border-neutral-800">
 						{#if data.profile.photoUrl}
-							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="square" />
+							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="square" class="object-cover! object-center!" />
 						{:else}
 							<div class="flex items-center justify-center w-full h-full text-neutral-600">
 								<i class="ri-user-fill text-6xl"></i>
@@ -155,8 +155,8 @@
 		</section>
 
 		<!-- FEATURED PROJECT SECTION -->
-		<section id="project" class="py-20 md:py-28 px-6 md:px-12 border-t border-neutral-900 bg-neutral-950/40">
-			<div class="max-w-6xl mx-auto">
+		<section id="project" class="py-20 md:py-28 px-6 md:px-16 border-t border-neutral-900 bg-neutral-950/40">
+			<div class="w-full">
 				<div class="text-center md:text-left mb-16">
 					<h2 class="text-3xl md:text-4xl font-extrabold text-neutral-100 mt-2">Projek Saya</h2>
 				</div>
@@ -168,9 +168,9 @@
 							<i class="ri-code-s-slash-line text-2xl"></i>
 						</div>
 						<div class="flex flex-col gap-1">
-							<h3 class="text-lg font-bold text-neutral-200">Belum ada projek</h3>
+							<h3 class="text-lg font-bold text-neutral-200">Daftar Projek akan segera hadir</h3>
 							<p class="text-neutral-500 text-sm">
-								Hubungkan karya-karya projek Anda di panel admin untuk menampilkannya di sini.
+								Nantikan daftar projek yang saya kembangkan.
 							</p>
 						</div>
 					</div>
@@ -178,7 +178,7 @@
 					<!-- Display Projects List -->
 					<div class="flex flex-col gap-10">
 						{#each data.projects as project}
-							<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 bg-neutral-900/40 border border-neutral-800 p-6 md:p-8 rounded-3xl hover:border-neutral-700/60 transition-all duration-300">
+							<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 bg-neutral-900/40 border border-neutral-800 p-6 px-0 md:p-8 rounded-3xl hover:border-neutral-700/60 transition-all duration-300">
 								<!-- Mockup Column -->
 								<div class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group">
 									{#if project.photoUrl}
@@ -241,7 +241,7 @@
 		</section>
 
 		<!-- CONTACT FORM SECTION -->
-		<section id="contact" class="py-20 md:py-28 px-6 md:px-12 border-t border-neutral-900 max-w-6xl mx-auto">
+		<section id="contact" class="py-20 md:py-28 px-6 md:px-16 border-t border-neutral-900 w-full">
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<!-- Left Text Block -->
 				<div class="lg:col-span-5 flex flex-col justify-center gap-6 text-center lg:text-left">
@@ -256,7 +256,7 @@
 					<!-- Info cards -->
 					<div class="flex flex-col gap-4 mt-4 max-w-sm mx-auto lg:mx-0 text-left">
 						{#if data.profile.email}
-							<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900 border border-neutral-800">
+							<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800">
 								<div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
 									<i class="ri-mail-send-line text-lg"></i>
 								</div>
@@ -266,7 +266,7 @@
 								</div>
 							</div>
 						{/if}
-						<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900 border border-neutral-800">
+						<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800">
 							<div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
 								<i class="ri-map-pin-line text-lg"></i>
 							</div>
@@ -280,7 +280,7 @@
 
 				<!-- Right Form Block -->
 				<div class="lg:col-span-7">
-					<div class="bg-neutral-900 border border-neutral-800 rounded-3xl p-6 md:p-8 shadow-xl">
+					<div class="bg-neutral-900/40 border border-neutral-800 rounded-3xl p-6 md:p-8 shadow-xl">
 						<form method="POST" action="?/sendMessage" use:enhance={handleContactSubmit} class="flex flex-col gap-5">
 							<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 								<Input
