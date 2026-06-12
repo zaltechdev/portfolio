@@ -242,7 +242,7 @@
 		<section id="contact" class="py-20 md:py-28 px-6 md:px-16 border-t border-neutral-900 w-full">
 			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<!-- Left Text Block -->
-				<div class="lg:col-span-5 flex flex-col justify-center gap-6 text-center lg:text-left">
+				<div class="lg:col-span-5 flex flex-col justify-center gap-4 text-center lg:text-left w-full">
 					<div class="flex flex-col gap-2">
 						<span class="text-indigo-400 text-xs font-bold uppercase tracking-wider">Hubungi Saya</span>
 						<h2 class="text-3xl md:text-4xl font-extrabold text-neutral-100">Mari Bekerja Sama</h2>
@@ -250,29 +250,22 @@
 					<p class="text-neutral-400 text-sm md:text-base leading-relaxed">
 						Tertarik untuk bekerja sama, mendiskusikan projek baru, atau hanya ingin menyapa? Kirimkan pesan Anda melalui formulir kontak ini. Saya akan membalas secepat mungkin.
 					</p>
-
-					<!-- Info cards -->
-					<div class="flex flex-col gap-4 mt-4 max-w-sm mx-auto lg:mx-0 text-left">
-						{#if data.profile.email}
-							<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800">
-								<div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-									<i class="ri-mail-send-line text-lg"></i>
-								</div>
-								<div>
-									<h4 class="text-xs font-bold text-neutral-400">Email</h4>
-									<span class="text-sm text-neutral-200">{data.profile.email}</span>
-								</div>
-							</div>
+					
+					<!-- Social Links -->
+					<div class="flex items-center justify-center lg:justify-start gap-4 mt-2 self-center lg:self-start">
+						<a href={data.profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-16 h-16 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+							<i class="ri-github-fill text-3xl"></i>
+						</a>
+						{#if data.profile.linkedin}
+							<a href={data.profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" class="w-16 h-16 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+								<i class="ri-linkedin-box-fill text-3xl"></i>
+							</a>
 						{/if}
-						<div class="flex items-center gap-4 p-4 rounded-xl bg-neutral-900/40 border border-neutral-800">
-							<div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-								<i class="ri-map-pin-line text-lg"></i>
-							</div>
-							<div>
-								<h4 class="text-xs font-bold text-neutral-400">Lokasi</h4>
-								<span class="text-sm text-neutral-200">Indonesia</span>
-							</div>
-						</div>
+						{#if data.profile.email}
+							<a href="mailto:{data.profile.email}" aria-label="Email Address" class="w-16 h-16 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
+								<i class="ri-mail-fill text-3xl"></i>
+							</a>
+						{/if}
 					</div>
 				</div>
 
@@ -310,6 +303,7 @@
 								required
 								rows={6}
 								disabled={loading}
+								class="resize-none!"
 							/>
 
 							<div class="pt-2">
