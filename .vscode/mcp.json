@@ -1,0 +1,11 @@
+{
+	"servers": {
+		"svelte": {
+			"command": "bunx",
+			"args": [
+				"-y",
+				"@sveltejs/mcp"
+			]
+		}
+	}
+}
