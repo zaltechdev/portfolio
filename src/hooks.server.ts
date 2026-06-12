@@ -72,14 +72,22 @@ export const handle: Handle = async ({ event, resolve }) => {
 	const hasOwner = (ownerCountResult[0]?.count ?? 0) > 0;
 
 	if (path.startsWith('/admin')) {
-		if (path === '/admin/login' || path === '/admin/login/verify') {
+		const isPublicAdminPath = 
+			path === '/admin/login' || 
+			path === '/admin/login/verify' || 
+			path === '/admin/login/forgot' || 
+			path.startsWith('/admin/login/forgot/');
+
+		const isFullyAuthenticated = !!(event.locals.user && event.locals.session?.payloads?.type === 'authenticated');
+
+		if (isPublicAdminPath) {
 			// If already fully logged in, redirect to dashboard
-			if (event.locals.user && !isPendingOtp) {
+			if (isFullyAuthenticated) {
 				throw redirect(303, '/admin/dashboard');
 			}
 		} else {
 			// If not logged in, redirect to login page
-			if (!event.locals.user || isPendingOtp) {
+			if (!isFullyAuthenticated) {
 				if (!hasOwner) {
 					// If no owner exists, allow hitting /admin/login to register
 					if (path !== '/admin/login') {
@@ -88,7 +96,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 				} else {
 					if (isPendingOtp && path !== '/admin/login/verify') {
 						throw redirect(303, '/admin/login/verify');
-					} else if (!isPendingOtp) {
+					} else {
 						throw redirect(303, '/admin/login');
 					}
 				}

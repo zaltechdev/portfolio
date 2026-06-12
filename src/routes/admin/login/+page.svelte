@@ -10,11 +10,14 @@
 	let toastMessage = $state("");
 	let toastType = $state<'success' | 'error' | 'info'>('info');
 
-	// Set toast message when action returns form values
+	// Set toast message when action returns form values or password reset is successful
 	$effect(() => {
 		if (form?.error) {
 			toastMessage = form.error;
 			toastType = 'error';
+		} else if (data.resetSuccess) {
+			toastMessage = 'Kata sandi berhasil diatur ulang. Silakan masuk.';
+			toastType = 'success';
 		}
 	});
 
@@ -68,6 +71,12 @@
 					required
 					disabled={loading}
 				/>
+
+				<div class="flex justify-end -mt-2">
+					<a href="/admin/login/forgot" class="text-xs text-indigo-400 hover:text-indigo-300 transition-colors duration-300 outline-none">
+						Lupa Kata Sandi?
+					</a>
+				</div>
 
 				<div class="mt-2">
 					<Button type="submit" width="full" disabled={loading}>

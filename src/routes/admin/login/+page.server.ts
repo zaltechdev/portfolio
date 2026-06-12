@@ -9,10 +9,11 @@ import { fail, redirect } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import type { Actions, PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ url }) => {
 	const ownerCountResult = await db.select({ count: sql<number>`count(*)` }).from(owner);
 	const hasOwner = (ownerCountResult[0]?.count ?? 0) > 0;
-	return { hasOwner };
+	const resetSuccess = url.searchParams.get('resetSuccess') === 'true';
+	return { hasOwner, resetSuccess };
 };
 
 export const actions: Actions = {
@@ -111,20 +112,16 @@ export const actions: Actions = {
 				return fail(400, { error: 'Invalid username or password' });
 			}
 
-			// Password valid! Send OTP
-			const otp = generateOTP();
+			// Password valid! Create session directly to log in
 			const now = unixtimestamp();
 			const sessionId = crypto.randomUUID();
-			const expiredAt = now + (Number(env.VERIFY_EXPIRED) || 300);
+			const expiredAt = now + (Number(env.LOGIN_EXPIRED) || 3600);
 
-			// Save session with OTP payload
+			// Save session with authenticated status
 			await db.insert(sessions).values({
 				id: sessionId,
 				userId: user.id,
-				payloads: {
-					type: 'pending_otp',
-					data: { otp, tempUserId: user.id }
-				},
+				payloads: { type: 'authenticated' },
 				createdAt: now,
 				expiredAt
 			});
@@ -135,26 +132,10 @@ export const actions: Actions = {
 				httpOnly: true,
 				sameSite: 'lax',
 				secure: process.env.NODE_ENV === 'production',
-				maxAge: Number(env.VERIFY_EXPIRED) || 300
+				maxAge: Number(env.LOGIN_EXPIRED) || 3600
 			});
 
-			// Try to send OTP mail
-			try {
-				await sendMail({
-					to: user.email,
-					subject: 'Verification Code - Portfolio Admin',
-					component: Otp,
-					props: { otp }
-				});
-				console.log(`[OTP Sent via SMTP] to: ${user.email}`);
-			} catch (mailError) {
-				console.warn('SMTP error occurred, logging OTP to console instead:', mailError);
-				console.log('\n====================================');
-				console.log(`OTP VERIFICATION CODE FOR ${user.email}: ${otp}`);
-				console.log('====================================\n');
-			}
-
-			throw redirect(303, '/admin/login/verify');
+			throw redirect(303, '/admin/dashboard');
 		} catch (err: any) {
 			if (err.status === 303) throw err;
 			console.error(err);

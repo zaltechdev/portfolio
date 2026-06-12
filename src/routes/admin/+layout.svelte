@@ -22,7 +22,7 @@
 	}
 </script>
 
-{#if page.url.pathname === '/admin/login' || page.url.pathname === '/admin/login/verify'}
+{#if page.url.pathname.startsWith('/admin/login')}
 	{@render children()}
 {:else}
 <div class="min-h-screen bg-[#09090b] text-neutral-100 flex flex-col md:flex-row">
