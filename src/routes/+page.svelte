@@ -75,8 +75,29 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
-	<title>zaltechdev</title>
-	<meta name="description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio pribadi saya.'} />
+	<title>{data.profile ? `${data.profile.fullname} - Portofolio` : 'zaltechdev - Portofolio'}</title>
+	<meta name="description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio saya.'} />
+	
+	<!-- Keywords -->
+	<meta name="keywords" content={data.profile ? `${data.profile.fullname}, portofolio, web developer, software engineer, programming, ${data.projects.map(p => p.title).join(', ')}` : 'zaltechdev, portofolio, web developer, software engineer'} />
+	
+	<!-- Robots -->
+	<meta name="robots" content="index, follow" />
+	
+	<!-- Canonical URL -->
+	<link rel="canonical" href={page.url.href} />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={page.url.href} />
+	<meta property="og:title" content={data.profile ? `${data.profile.fullname} - Portofolio` : 'zaltechdev - Portofolio'} />
+	<meta property="og:description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio saya.'} />
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content={page.url.href} />
+	<meta property="twitter:title" content={data.profile ? `${data.profile.fullname} - Portofolio` : 'zaltechdev - Portofolio'} />
+	<meta property="twitter:description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio saya.'} />
 </svelte:head>
 
 <Toast bind:message={toastMessage} type={toastType} />
