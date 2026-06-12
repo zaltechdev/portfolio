@@ -259,7 +259,7 @@
 									<i class="ri-mail-send-line text-lg"></i>
 								</div>
 								<div>
-									<h4 class="text-xs font-bold text-neutral-400">Email Utama</h4>
+									<h4 class="text-xs font-bold text-neutral-400">Email</h4>
 									<span class="text-sm text-neutral-200">{data.profile.email}</span>
 								</div>
 							</div>
