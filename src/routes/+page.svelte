@@ -178,7 +178,7 @@
 					<!-- Display Projects List -->
 					<div class="flex flex-col gap-10">
 						{#each data.projects as project}
-							<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 bg-neutral-900/40 border border-neutral-800 p-6 px-0 md:p-8 rounded-3xl hover:border-neutral-700/60 transition-all duration-300">
+							<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 bg-neutral-900/40 border border-neutral-800 p-6 md:p-8 rounded-3xl hover:border-neutral-700/60 transition-all duration-300">
 								<!-- Mockup Column -->
 								<div class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group">
 									{#if project.photoUrl}
@@ -192,23 +192,21 @@
 								</div>
 
 								<!-- Details Column -->
-								<div class="md:col-span-7 flex flex-col justify-center gap-6">
+								<div class="md:col-span-7 flex flex-col justify-center gap-2">
 									<div class="flex flex-col gap-2">
 										<h3 class="text-2xl md:text-3xl font-extrabold text-neutral-100 tracking-tight">{project.title}</h3>
-										
-										<!-- Tech Stack Tags -->
-										<div class="flex flex-wrap gap-2 mt-2">
-											{#each parseTechStack(project.techstack) as tag}
-												<span class="px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-semibold text-[11px] uppercase tracking-wider">
-													{tag}
-												</span>
-											{/each}
-										</div>
 									</div>
-
 									<p class="text-neutral-400 text-sm md:text-base leading-relaxed whitespace-pre-line">
 										{project.description}
 									</p>
+									<!-- Tech Stack Tags -->
+									<div class="flex flex-wrap gap-2 mt-2">
+										{#each parseTechStack(project.techstack) as tag}
+											<span class="px-2.5 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 font-semibold text-[11px] uppercase tracking-wider">
+												{tag}
+											</span>
+										{/each}
+									</div>
 								</div>
 							</div>
 						{/each}
