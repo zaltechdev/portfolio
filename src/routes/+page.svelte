@@ -48,7 +48,7 @@
 </script>
 
 <svelte:head>
-	<title>{data.profile ? data.profile.fullname : 'Portofolio Digital'}</title>
+	<title>zaltechdev</title>
 	<meta name="description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio pribadi saya.'} />
 </svelte:head>
 
