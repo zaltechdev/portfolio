@@ -8,6 +8,7 @@
 		alt?: string;
 		ratio?: 'auto' | 'square' | 'square-circled' | 'portrait' | 'landscape';
 		objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+		objectPosition? : 'center' | 'top' | 'bottom' | 'left' | 'right';
 	}
 
 	let {
@@ -16,6 +17,7 @@
 		ratio = 'auto',
 		objectFit = 'cover',
 		loading = 'lazy',
+		objectPosition = 'center',
 		class: className,
 		...rest
 	}: Props = $props();
@@ -64,6 +66,16 @@
 			default: return 'object-cover';
 		}
 	});
+
+	let positionClass = $derived.by(() => {
+		switch(objectPosition) {
+			case 'center' : return 'object-center';
+			case 'bottom' : return 'object-bottom';
+			case 'top' : return 'object-top';
+			case 'left' : return 'object-left';
+			case 'right' : return 'object-right';
+		}
+	})
 </script>
 
 <div class={cn('relative overflow-hidden w-full bg-neutral-900/10 dark:bg-neutral-900 flex items-center justify-center', ratioClasses, className)}>
@@ -80,7 +92,7 @@
 			class={cn(
 				'w-full transition-all duration-700 ease-in-out',
 				ratio === 'auto' ? 'h-auto' : 'h-full absolute inset-0',
-				fitClass,
+				fitClass, positionClass,
 				isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-sm scale-105'
 			)}
 			onerror={handleError}

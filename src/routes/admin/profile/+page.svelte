@@ -82,7 +82,7 @@
 			
 			<div class="w-40 h-40 rounded-full overflow-hidden border-2 border-neutral-800 shadow-xl bg-neutral-950 relative flex items-center justify-center">
 				{#if photoPreview}
-					<Image src={photoPreview} alt="Foto Profil Preview" ratio="square-circled" />
+					<Image src={photoPreview} alt="Foto Profil Preview" ratio="square-circled" objectPosition="top" />
 				{:else}
 					<div class="flex flex-col items-center justify-center text-neutral-600 gap-1">
 						<i class="ri-user-smile-line text-4xl"></i>

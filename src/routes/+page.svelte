@@ -58,7 +58,7 @@
 	<!-- SETUP WELCOME SCREEN IF PROFILE NOT YET CONFIGURED -->
 	<div class="h-dvh bg-neutral-950 text-neutral-100 flex items-center justify-center p-4 relative overflow-hidden">
 		<!-- Background light glow -->
-		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
+		<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 bg-indigo-500/10 rounded-full blur-[150px] pointer-events-none"></div>
 
 		<div class="max-w-md w-full bg-neutral-900/50 backdrop-blur-xl border border-neutral-800 p-8 rounded-2xl text-center flex flex-col gap-6 shadow-2xl relative z-10">
 			<div class="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-3xl mx-auto shadow-lg shadow-indigo-500/5">
@@ -88,7 +88,7 @@
 	<div class="h-dvh bg-neutral-950 text-neutral-100 selection:bg-indigo-500/30 selection:text-indigo-200">
 		
 		<!-- STICKY GLASSMORPHIC NAVBAR -->
-		<nav class="sticky top-0 z-40 bg-neutral-950/60 backdrop-blur-md border-b border-neutral-900/60 py-4 px-6 md:px-12 flex justify-between items-center">
+		<nav class="sticky top-0 z-40 bg-neutral-950/60 backdrop-blur-md border-b border-neutral-900/60 py-4 px-6 md:px-16 flex justify-between items-center">
 			<a href="/" class="text-lg font-black tracking-widest text-indigo-400 hover:text-indigo-300 transition-colors uppercase">
 				zaltechdev
 			</a>
@@ -140,10 +140,10 @@
 
 			<!-- Right Photo Block -->
 			<div class="md:col-span-5 flex justify-center order-1 md:order-2">
-				<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/40 p-1.5 shadow-2xl flex items-center justify-center">
+				<div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full overflow-hidden border border-neutral-800 bg-neutral-900/40 p-1.5 shadow-2xl flex items-center justify-center">
 					<div class="w-full h-full rounded-full overflow-hidden relative border border-neutral-800">
 						{#if data.profile.photoUrl}
-							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="square" class="object-cover! object-center!" />
+							<Image src={data.profile.photoUrl} alt={data.profile.fullname} ratio="square" objectPosition="top" />
 						{:else}
 							<div class="flex items-center justify-center w-full h-full text-neutral-600">
 								<i class="ri-user-fill text-6xl"></i>
@@ -184,7 +184,7 @@
 									{#if project.photoUrl}
 										<Image src={project.photoUrl} alt={project.title} ratio="landscape" class="group-hover:scale-105 transition-transform duration-700" />
 									{:else}
-										<div class="flex flex-col items-center justify-center py-12 text-neutral-600 gap-2 w-full h-full min-h-[220px]">
+										<div class="flex flex-col items-center justify-center py-12 text-neutral-600 gap-2 w-full h-full min-h-55">
 											<i class="ri-image-line text-3xl"></i>
 											<span class="text-xs">Gambar Projek</span>
 										</div>
