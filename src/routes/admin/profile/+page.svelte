@@ -51,8 +51,8 @@
 	function handleSubmit() {
 		loading = true;
 		return async ({ update }: any) => {
-			loading = false;
 			await update({ reset: false });
+			loading = false;
 		};
 	}
 </script>

@@ -24,8 +24,8 @@
 	function handleSubmit() {
 		loading = true;
 		return async ({ update, result }: any) => {
-			loading = false;
 			await update();
+			loading = false;
 		};
 	}
 </script>

@@ -24,16 +24,16 @@
 	function handleInfoSubmit() {
 		infoLoading = true;
 		return async ({ update }: any) => {
-			infoLoading = false;
 			await update({ reset: false });
+			infoLoading = false;
 		};
 	}
 
 	function handlePwdSubmit() {
 		pwdLoading = true;
 		return async ({ update }: any) => {
-			pwdLoading = false;
 			await update();
+			pwdLoading = false;
 		};
 	}
 </script>

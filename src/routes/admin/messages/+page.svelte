@@ -52,8 +52,8 @@
 		loading = true;
 		deleteModalOpen = false;
 		return async ({ update }: any) => {
-			loading = false;
 			await update();
+			loading = false;
 		};
 	}
 </script>

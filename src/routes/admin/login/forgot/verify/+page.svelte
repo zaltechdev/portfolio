@@ -25,15 +25,14 @@
 	function handleVerify() {
 		loading = true;
 		return async ({ update }: any) => {
-			loading = false;
 			await update();
+			loading = false;
 		};
 	}
 
 	function handleResend() {
 		resending = true;
 		return async ({ update, result }: any) => {
-			resending = false;
 			if (result.type === 'success' && result.data?.message) {
 				toastMessage = result.data.message;
 				toastType = 'success';
@@ -42,6 +41,7 @@
 				toastType = 'error';
 			}
 			await update({ reset: false });
+			resending = false;
 		};
 	}
 </script>
