@@ -52,7 +52,7 @@
 		loading = true;
 		return async ({ update }: any) => {
 			loading = false;
-			await update();
+			await update({ reset: false });
 		};
 	}
 </script>

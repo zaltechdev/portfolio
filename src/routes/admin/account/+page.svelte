@@ -25,7 +25,7 @@
 		infoLoading = true;
 		return async ({ update }: any) => {
 			infoLoading = false;
-			await update();
+			await update({ reset: false });
 		};
 	}
 
