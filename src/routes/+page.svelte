@@ -77,16 +77,16 @@
 <svelte:head>
 	<title>{data.profile ? `${data.profile.fullname} - Portofolio` : 'zaltechdev - Portofolio'}</title>
 	<meta name="description" content={data.profile ? data.profile.description : 'Selamat datang di portofolio saya.'} />
-	
+
 	<!-- Keywords -->
 	<meta name="keywords" content={data.profile ? `${data.profile.fullname}, portofolio, web developer, software engineer, programming, ${data.projects.map(p => p.title).join(', ')}` : 'zaltechdev, portofolio, web developer, software engineer'} />
-	
+
 	<!-- Robots -->
 	<meta name="robots" content="index, follow" />
-	
+
 	<!-- Canonical URL -->
 	<link rel="canonical" href={page.url.href} />
-	
+
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content={page.url.href} />
@@ -112,7 +112,7 @@
 			<div class="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center text-3xl mx-auto shadow-lg shadow-indigo-500/5">
 				<i class="ri-rocket-2-line"></i>
 			</div>
-			
+
 			<div class="flex flex-col gap-2">
 				<h1 class="text-2xl font-extrabold tracking-tight text-neutral-100">Siapkan Portofolio Anda</h1>
 				<p class="text-neutral-400 text-sm leading-relaxed">
@@ -134,13 +134,13 @@
 {:else}
 	<!-- FULL PORTFOLIO LANDING PAGE -->
 	<div class="h-dvh bg-neutral-950 text-neutral-100 selection:bg-indigo-500/30 selection:text-indigo-200">
-		
+
 		<!-- STICKY GLASSMORPHIC NAVBAR -->
 		<nav class="sticky top-0 z-40 bg-neutral-950/60 backdrop-blur-md border-b border-neutral-900/60 py-4 px-6 md:px-16 flex justify-between items-center">
 			<a href="/" class="text-lg font-black tracking-widest text-indigo-400 hover:text-indigo-300 transition-colors uppercase">
 				zaltechdev
 			</a>
-			
+
 			<div class="flex items-center gap-6 md:gap-8">
 				<a href="#about" class="text-sm font-semibold text-neutral-400 hover:text-neutral-100 transition-colors">Tentang</a>
 				<a href="#project" class="text-sm font-semibold text-neutral-400 hover:text-neutral-100 transition-colors">Projek</a>
@@ -234,7 +234,7 @@
 										onclick={() => openPreview(project.photoUrl, project.title)}
 										class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group cursor-zoom-in text-left p-0 w-full font-normal focus:outline-hidden"
 									>
-										<Image src={project.photoUrl} alt={project.title} ratio="landscape" class="group-hover:scale-105 transition-transform duration-700 w-full" />
+										<Image src={project.photoUrl} alt={project.title} ratio="landscape" objectPosition="top" class="group-hover:scale-105 transition-transform duration-700 w-full" />
 									</button>
 								{:else}
 									<div class="md:col-span-5 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-950 flex items-center justify-center shadow-lg relative group">
@@ -304,7 +304,7 @@
 					<p class="text-neutral-400 text-sm md:text-base leading-relaxed">
 						Tertarik untuk bekerja sama, mendiskusikan projek baru, atau hanya ingin menyapa? Kirimkan pesan Anda melalui formulir kontak ini. Saya akan membalas secepat mungkin.
 					</p>
-					
+
 					<!-- Social Links -->
 					<div class="flex items-center justify-center lg:justify-start gap-4 mt-2 self-center lg:self-start">
 						<a href={data.profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" class="w-16 h-16 rounded-xl bg-neutral-900/40 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-neutral-100 hover:border-neutral-700 transition-all duration-300 shadow-md">
@@ -337,7 +337,7 @@
 									required
 									disabled={loading}
 								/>
-								
+
 								<Input
 									label="Alamat Email"
 									name="email"
@@ -406,7 +406,7 @@
 		<!-- Image Wrapper -->
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<!-- svelte-ignore a11y_no_static_element_interactions -->
-		<div 
+		<div
 			class="relative max-w-5xl max-h-[85vh] flex flex-col items-center gap-4 cursor-default"
 			onclick={(e) => e.stopPropagation()}
 			transition:scale={{ duration: 250, start: 0.95 }}
